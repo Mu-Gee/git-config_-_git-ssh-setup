@@ -98,9 +98,9 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 1. Start the ssh-agent in the background.
 
 ```
-$ eval "$(ssh-agent -s)"
-> Agent pid 59566
+eval "$(ssh-agent -s)"
 ```
+`> Agent pid 59566`
 
 Depending on your environment, you may need to use a different command. For example, you may need to use root access by running `sudo -s -H` before starting the ssh-agent, or you may need to use `exec ssh-agent bash` or `exec ssh-agent zsh` to run the ssh-agent.
 
@@ -112,3 +112,35 @@ ssh-add ~/.ssh/id_ed25519
 ```
 
 3. Add the SSH public key to your account on GitHub.
+
+### Adding a new SSH key to your GitHub account
+
+To configure your account on GitHub.com to use your new (or existing) SSH key, you'll also need to add the key to your account.
+
+1. Copy the SSH public key to your clipboard.
+
+If your SSH public key file has a different name than the example code, modify the filename to match your current setup. When copying your key, don't add any newlines or whitespace.
+
+```
+$ cat ~/.ssh/id_ed25519.pub
+# Then select and copy the contents of the id_ed25519.pub file
+# displayed in the terminal to your clipboard
+```
+
+***Tip: Alternatively, you can locate the hidden .ssh folder, open the file in your favorite text editor, and copy it to your clipboard.***
+
+2. In the upper-right corner of any page on GitHub, click your profile photo, then click Settings.
+
+3. In the "Access" section of the sidebar, click SSH and GPG keys.
+
+4. Click New SSH key or Add SSH key.
+
+5. In the "Title" field, add a descriptive label for the new key. For example, if you're using a personal laptop, you might call this key "Personal laptop".
+
+6. Select the type of key, either authentication or signing.
+
+7. In the "Key" field, paste your public key.
+
+8. Click Add SSH key.
+
+9. If prompted, confirm access to your account on GitHub.
