@@ -165,3 +165,10 @@ You may see a warning like this:
 
 > Hi USERNAME! You've successfully authenticated, but GitHub does not
 > provide shell access.
+
+You may see this error message:
+
+>...
+Agent admitted failure to sign using the key.
+debug1: No more authentication methods to try.
+Permission denied (publickey).
