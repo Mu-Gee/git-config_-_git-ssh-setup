@@ -15,6 +15,10 @@ The first thing you should do when you install Git is to set your user name and 
 $ git config --global user.name "John Doe"
 $ git config --global user.email johndoe@example.com
 ```
+Again, you need to do this only once if you pass the `--global` option, because then Git will always use that information for anything you do on that system. If you want to override this with a different name or email address for specific projects, you can run the command without the `--global` option when you’re in that project.
+##### Note: The email used here will be visisble on all your commits both private and public, it is therefore advicedto use the email Github provides you for making changes to a repository. It should look something like this `12345678+your_github_username@users.noreply.github.com.`
 
 You can view all of your settings and where they are coming from using:
-```$ git config --list --show-origin```
+```
+$ git config --list --show-origin
+```
