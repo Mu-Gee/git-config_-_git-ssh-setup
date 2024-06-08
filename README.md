@@ -40,7 +40,13 @@ git config --list
 ```
 
 You should get an output similar to this:
-
+>user.name=John Doe
+user.email=johndoe@example.com
+color.status=auto
+color.branch=auto
+color.interactive=auto
+color.diff=auto
+...
 ```
 user.name=John Doe
 user.email=johndoe@example.com
