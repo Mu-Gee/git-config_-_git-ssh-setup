@@ -69,7 +69,7 @@ You can access and write data in repositories on GitHub.com using SSH (Secure Sh
 If you don't already have an SSH key, you must generate a new SSH key to use for authentication. If you're unsure whether you already have an SSH key, you can check for existing keys. For more information, see  ["Checking for existing SSH keys."](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh "Before you generate an SSH key, you can check to see if you have any existing SSH keys.")
 
 ### Generating a new SSH key
-The instructions below cover generating a new ssh key in Linux for Windows see [Windows](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=windows "Generating ssh keys for Windows") and for Mac see here [Mac](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=mac "Generating ssh keys for Mac")
+The instructions below cover generating a new ssh key in Linux for Windows see [Windows](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=windows "Generating ssh keys for Windows") and for Mac see [Mac](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=mac "Generating ssh keys for Mac")
 
 1. Open Terminal
 2. Paste the text below, replacing the email used in the example with your GitHub email address.
@@ -144,3 +144,24 @@ $ cat ~/.ssh/id_ed25519.pub
 8. Click Add SSH key.
 
 9. If prompted, confirm access to your account on GitHub.
+
+### Testing your SSH connection
+
+After you've set up your SSH key and added it to GitHub, you can test your connection.
+
+1. Open Terminal.
+
+2. Enter the following:
+```
+ssh -T git@github.com
+```
+You may see a warning like this:
+
+> The authenticity of host 'github.com (IP ADDRESS)' can't be established.
+> ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
+> Are you sure you want to continue connecting (yes/no)?
+
+3. Verify that the fingerprint in the message you see matches GitHub's public key fingerprint. If it does, then type yes:
+
+> Hi USERNAME! You've successfully authenticated, but GitHub does not
+> provide shell access.
