@@ -50,15 +50,14 @@ git config --list
 
 You should get an output similar to this:
 
-```
-user.name=John Doe
+>user.name=John Doe
 user.email=johndoe@example.com
 color.status=auto
 color.branch=auto
 color.interactive=auto
 color.diff=auto
 ...
-```
+
 
 Now that you have Git configured it's time to start using it. Now let's configure SSH for Git to Github so that you can easily work with your remote reposistories from the CLI
 
@@ -152,6 +151,7 @@ After you've set up your SSH key and added it to GitHub, you can test your conne
 1. Open Terminal.
 
 2. Enter the following:
+
 ```
 ssh -T git@github.com
 ```
@@ -179,10 +179,10 @@ This is a known problem with certain Linux distributions. For more information, 
 
 4. Verify that the resulting message contains your username. If you receive a "permission denied" message, see ["Error: Permission denied (publickey)."](https://docs.github.com/en/authentication/troubleshooting-ssh/error-permission-denied-publickey "A 'Permission denied' error means that the server rejected your connection. There could be several reasons why, and the most common examples are explained below.")
 
-And with that we come to the end, now you should be able to use git from the terminal to manage chanages to your remote repositories.
+And with that we come to the end, now you should be able to use git from the terminal to manage changes to your remote repositories.
 Now go check out my guide on how to create aliases for the long git commands for [Windows Powershell](https://github.com/Mu-Gee/powershell_aliases_for_git "Setting Permanent Aliases for Windows PowerShell") and for [Linux](https://github.com/Mu-Gee/bash_aliases_for_git "Setting Permanent Aliases for Bash and Zsh Terminals")
 
 
-### CREDITS: ###
+### CREDITS:
 [git-scm](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup "Getting Started - First-Time Git Setup") <br>
 [Github Docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent "Authentication/Connect with SSH/")
