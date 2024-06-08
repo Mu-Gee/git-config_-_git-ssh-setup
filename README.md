@@ -69,7 +69,7 @@ You can access and write data in repositories on GitHub.com using SSH (Secure Sh
 If you don't already have an SSH key, you must generate a new SSH key to use for authentication. If you're unsure whether you already have an SSH key, you can check for existing keys. For more information, see  ["Checking for existing SSH keys."](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh "Before you generate an SSH key, you can check to see if you have any existing SSH keys.")
 
 ### Generating a new SSH key
-The instructions below cover generating a new ssh key in Linux for Windows see [Windows](hhttps://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=windows "Generating ssh keys for Windows") and for Mac see here [Mac](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=mac "Generating ssh keys for Mac")
+The instructions below cover generating a new ssh key in Linux for Windows see [Windows](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=windows "Generating ssh keys for Windows") and for Mac see here [Mac](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=mac "Generating ssh keys for Mac")
 
 1. Open Terminal
 2. Paste the text below, replacing the email used in the example with your GitHub email address.
@@ -84,9 +84,31 @@ ssh-keygen -t ed25519 -C "your_email@example.com"
 This creates a new SSH key, using the provided email as a label.
 
 When you're prompted to "Enter a file in which to save the key", you can press Enter to accept the default file location. Please note that if you created SSH keys previously, ssh-keygen may ask you to rewrite another key, in which case we recommend creating a custom-named SSH key. To do so, type the default file location and replace id_ALGORITHM with your custom key name.
+
 `> Enter a file in which to save the key (/home/YOU/.ssh/id_ALGORITHM):[Press enter]`
 
 3. At the prompt, type a secure passphrase. For more information, see ["Working with SSH key passphrases."](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases "You can secure your SSH keys and configure an authentication agent so that you won't have to reenter your passphrase every time you use your SSH keys.")
 
 `> Enter a file in which to save the key (/home/YOU/.ssh/id_ALGORITHM):[Press enter]`
 
+### Adding your SSH key to the ssh-agent
+
+Before adding a new SSH key to the ssh-agent to manage your keys, you should have checked for existing SSH keys and generated a new SSH key.
+
+1. Start the ssh-agent in the background.
+
+```
+$ eval "$(ssh-agent -s)"
+> Agent pid 59566
+```
+
+Depending on your environment, you may need to use a different command. For example, you may need to use root access by running `sudo -s -H` before starting the ssh-agent, or you may need to use `exec ssh-agent bash` or `exec ssh-agent zsh` to run the ssh-agent.
+
+2. Add your SSH private key to the ssh-agent.
+
+If you created your key with a different name, or if you are adding an existing key that has a different name, replace id_ed25519 in the command with the name of your private key file.
+```
+ssh-add ~/.ssh/id_ed25519
+```
+
+3. Add the SSH public key to your account on GitHub.
