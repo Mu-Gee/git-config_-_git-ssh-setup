@@ -161,7 +161,7 @@ You may see a warning like this:
 > ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
 > Are you sure you want to continue connecting (yes/no)?
 
-3. Verify that the fingerprint in the message you see matches GitHub's public key fingerprint. If it does, then type yes:
+3. Verify that the fingerprint in the message you see matches [GitHub's public key fingerprint.](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints "GitHub's SSH key fingerprints, public key fingerprints can be used to validate a connection to a remote server.")If it does, then type yes:
 
 > Hi USERNAME! You've successfully authenticated, but GitHub does not
 > provide shell access.
@@ -172,3 +172,17 @@ You may see this error message:
 Agent admitted failure to sign using the key.
 debug1: No more authentication methods to try.
 Permission denied (publickey).
+
+This is a known problem with certain Linux distributions. For more information, see  ["Error: Agent admitted failure to sign."](https://docs.github.com/en/authentication/troubleshooting-ssh/error-agent-admitted-failure-to-sign "In rare circumstances, connecting to GitHub via SSH on Linux produces the error 'Agent admitted failure to sign using the key' Follow these steps to resolve the problem.")
+
+>Note: The remote command should exit with code 1.
+
+4. Verify that the resulting message contains your username. If you receive a "permission denied" message, see ["Error: Permission denied (publickey)."](https://docs.github.com/en/authentication/troubleshooting-ssh/error-permission-denied-publickey "A 'Permission denied' error means that the server rejected your connection. There could be several reasons why, and the most common examples are explained below.")
+
+And with that we come to the end, now you should be able to use git from the terminal to manage chanages to your remote repositories.
+Now go check out my guide on how to create aliases for the long git commands for [Windows Powershell](https://github.com/Mu-Gee/powershell_aliases_for_git "Setting Permanent Aliases for Windows PowerShell") and for [Linux](https://github.com/Mu-Gee/bash_aliases_for_git "Setting Permanent Aliases for Bash and Zsh Terminals")
+
+
+### CREDITS: ###
+[git-scm](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup "Getting Started - First-Time Git Setup") <br>
+[Github Docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent "Authentication/Connect with SSH/")
