@@ -84,11 +84,11 @@ This creates a new SSH key, using the provided email as a label.
 
 When you're prompted to "Enter a file in which to save the key", you can press Enter to accept the default file location. Please note that if you created SSH keys previously, ssh-keygen may ask you to rewrite another key, in which case we recommend creating a custom-named SSH key. To do so, type the default file location and replace id_ALGORITHM with your custom key name.
 
-`> Enter a file in which to save the key (/home/YOU/.ssh/id_ALGORITHM):[Press enter]`
+>\> Enter a file in which to save the key (/home/YOU/.ssh/id_ALGORITHM):[Press enter]
 
 3. At the prompt, type a secure passphrase. For more information, see ["Working with SSH key passphrases."](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases "You can secure your SSH keys and configure an authentication agent so that you won't have to reenter your passphrase every time you use your SSH keys.")
 
-`> Enter a file in which to save the key (/home/YOU/.ssh/id_ALGORITHM):[Press enter]`
+>\> Enter a file in which to save the key (/home/YOU/.ssh/id_ALGORITHM):[Press enter]
 
 ### Adding your SSH key to the ssh-agent
 
@@ -99,7 +99,7 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 ```
 eval "$(ssh-agent -s)"
 ```
-`> Agent pid 59566`
+>\> Agent pid 59566
 
 Depending on your environment, you may need to use a different command. For example, you may need to use root access by running `sudo -s -H` before starting the ssh-agent, or you may need to use `exec ssh-agent bash` or `exec ssh-agent zsh` to run the ssh-agent.
 
