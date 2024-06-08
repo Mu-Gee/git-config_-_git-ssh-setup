@@ -6,7 +6,16 @@ This repo should help you setup Git for the first time after install and also gu
 
 Now that you have Git on your system, you’ll want to do a few things to customize your Git environment. You should have to do these things only once on any given computer; they’ll stick around between upgrades. You can also change them at any time by running through the commands again.
 
-Git comes with a tool called `git config` that lets you get and set configuration variables that control all aspects of how Git looks and operates. Indepth explanation of where these variables are stored can be found [here](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup "git  configuration variables"). Now let's get started.
+Git comes with a tool called `git config` that lets you get and set configuration variables that control all aspects of how Git looks and operates. Indepth explanation of where these variables are stored can be found [here](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup "git  configuration variables").
+
+You can view all of your settings and where they are coming from using:
+
+```
+$ git config --list --show-origin
+```
+
+Now, let's get started.
+
 
 ## Your Identity
 
@@ -19,7 +28,7 @@ git config --global user.email johndoe@example.com
 
 Again, you need to do this only once if you pass the `--global` option, because then Git will always use that information for anything you do on that system. If you want to override this with a different name or email address for specific projects, you can run the command without the `--global` option when you’re in that project.
 
-***Note: The email used here will be visisble on all your commits both private and public, it is therefore advicedto use the email Github provides you for making changes to a repository. It should look something like this*** `12345678+your_github_username@users.noreply.github.com`
+***Note: The email used here will be visisble on all your commits both private and public, it is therefore adviced to use the email Github provides you for making changes to a repository. It should look something like this*** `12345678+your_github_username@users.noreply.github.com`
 
 ## Your default branch name
 
@@ -40,13 +49,7 @@ git config --list
 ```
 
 You should get an output similar to this:
->user.name=John Doe
-user.email=johndoe@example.com
-color.status=auto
-color.branch=auto
-color.interactive=auto
-color.diff=auto
-...
+
 ```
 user.name=John Doe
 user.email=johndoe@example.com
@@ -57,9 +60,33 @@ color.diff=auto
 ...
 ```
 
+Now that you have Git configured it's time to start using it. Now let's configure SSH for Git to Github so that you can easily work with your remote reposistories from the CLI
 
-You can view all of your settings and where they are coming from using:
+## Generating a new SSH key and adding it to the ssh-agent
+
+You can access and write data in repositories on GitHub.com using SSH (Secure Shell Protocol). When you connect via SSH, you authenticate using a private key file on your local machine. For more information, see ["About SSH."](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh "Using the SSH protocol, you can connect and authenticate to remote servers and services. With SSH keys, you can connect to GitHub without supplying your username and personal access token at each visit. You can also use an SSH key to sign commits.")
+
+If you don't already have an SSH key, you must generate a new SSH key to use for authentication. If you're unsure whether you already have an SSH key, you can check for existing keys. For more information, see  ["Checking for existing SSH keys."](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh "Before you generate an SSH key, you can check to see if you have any existing SSH keys.")
+
+### Generating a new SSH key
+The instructions below cover generating a new ssh key in Linux for Windows see [Windows](hhttps://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=windows "Generating ssh keys for Windows") and for Mac see here [Mac](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=mac "Generating ssh keys for Mac")
+
+1. Open Terminal
+2. Paste the text below, replacing the email used in the example with your GitHub email address.
 
 ```
-$ git config --list --show-origin
+ssh-keygen -t ed25519 -C "your_email@example.com"
 ```
+***Note: If you are using a legacy system that doesn't support the Ed25519 algorithm, use:***
+```
+ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
+This creates a new SSH key, using the provided email as a label.
+
+When you're prompted to "Enter a file in which to save the key", you can press Enter to accept the default file location. Please note that if you created SSH keys previously, ssh-keygen may ask you to rewrite another key, in which case we recommend creating a custom-named SSH key. To do so, type the default file location and replace id_ALGORITHM with your custom key name.
+`> Enter a file in which to save the key (/home/YOU/.ssh/id_ALGORITHM):[Press enter]`
+
+3. At the prompt, type a secure passphrase. For more information, see ["Working with SSH key passphrases."](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases "You can secure your SSH keys and configure an authentication agent so that you won't have to reenter your passphrase every time you use your SSH keys.")
+
+`> Enter a file in which to save the key (/home/YOU/.ssh/id_ALGORITHM):[Press enter]`
+
