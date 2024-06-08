@@ -37,14 +37,15 @@ If you want to check your configuration settings, you can use the `git config --
 $ git config --list
 ```
 You should get an output similar to this:
-```
+~~~
 user.name=John Doe
 user.email=johndoe@example.com
 color.status=auto
 color.branch=auto
 color.interactive=auto
 color.diff=auto
-...```
+...
+~~~
 
 
 You can view all of your settings and where they are coming from using:
