@@ -71,7 +71,7 @@ If you don't already have an SSH key, you must generate a new SSH key to use for
 The instructions below cover generating a new ssh key in Linux for Windows see [Windows](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=windows "Generating ssh keys for Windows") and for Mac see [Mac](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=mac "Generating ssh keys for Mac")
 
 1. Open Terminal
-2. Paste the text below, replacing the email used in the example with your GitHub email address.
+2. Paste the text below, replacing the email used in the example with your GitHub email address. You can also use the email address you used above from github that looks like this `12345678+your_github_username@users.noreply.github.com`
 
 ```
 ssh-keygen -t ed25519 -C "your_email@example.com"
