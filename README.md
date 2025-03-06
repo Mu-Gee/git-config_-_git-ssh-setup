@@ -11,7 +11,7 @@ Git comes with a tool called `git config` that lets you get and set configuratio
 You can view all of your settings and where they are coming from using:
 
 ```
-$ git config --list --show-origin
+git config --list --show-origin
 ```
 
 Now, let's get started.
@@ -121,7 +121,7 @@ To configure your account on GitHub.com to use your new (or existing) SSH key, y
 If your SSH public key file has a different name than the example code, modify the filename to match your current setup. When copying your key, don't add any newlines or whitespace.
 
 ```
-$ cat ~/.ssh/id_ed25519.pub
+cat ~/.ssh/id_ed25519.pub
 # Then select and copy the contents of the id_ed25519.pub file
 # displayed in the terminal to your clipboard
 ```
